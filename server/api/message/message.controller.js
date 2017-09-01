@@ -81,6 +81,7 @@ export function show(req, res) {
 
 // Creates a new Message in the DB
 export function create(req, res) {
+  console.log('Create message!!!');
   return Message.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

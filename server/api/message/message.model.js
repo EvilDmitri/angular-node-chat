@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 import {registerEvents} from './message.events';
 
 var MessageSchema = new mongoose.Schema({
-  name: String,
-  info: String,
+  author: String,
+  text: String,
   active: Boolean
 });
 
