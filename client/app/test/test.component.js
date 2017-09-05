@@ -3,6 +3,7 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 import routes from './test.routes';
 
+
 export class TestComponent {
   /*@ngInject*/
   $http;
@@ -22,6 +23,7 @@ export class TestComponent {
   $onInit() {
     this.$http.get('/api/messages')
       .then(responce => {
+        console.log(responce.data);
         this.messages = responce.data;
         this.socket.syncUpdates('message', this.messages);
       });
@@ -44,7 +46,8 @@ export default angular.module('fullstackAngularApp.test', [uiRouter])
   .config(routes)
   .component('test', {
     template: require('./test.html'),
-    controller: TestComponent,
-    controllerAs: 'testCtrl'
+    controller: TestComponent
+    // ,
+    // controllerAs: 'testCtrl'
   })
   .name;
